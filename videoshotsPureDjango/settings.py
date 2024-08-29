@@ -57,8 +57,8 @@ MIDDLEWARE = [
 
 MINIO_ENDPOINT = 'localhost:9000'
 MINIO_EXTERNAL_ENDPOINT_USE_HTTPS = False  # Default is same as MINIO_USE_HTTPS
-MINIO_ACCESS_KEY = 'SDNFsuf!ejihjadj'
-MINIO_SECRET_KEY = 'PloT211!!aDDASS!'
+MINIO_ACCESS_KEY = 'UTbYbh82SCY9P5ZyqzjM'
+MINIO_SECRET_KEY = 'I0l3AcfLrqCplGedkOStdsvbrqk9leFMjRO85RQ4'
 MINIO_USE_HTTPS = False
 MINIO_URL_EXPIRY_HOURS = timedelta(days=1)  # Default is 7 days (longest) if not defined
 MINIO_PRIVATE_BUCKETS = [
@@ -143,7 +143,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-#STATIC_URL = 'static/'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
