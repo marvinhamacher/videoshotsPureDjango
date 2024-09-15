@@ -1,7 +1,7 @@
 # made by marvin hamacher, marvin scharfe, niko nikolovski
 from datetime import timedelta
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from django_minio_backend import MinioBackend
@@ -61,10 +61,13 @@ class ImageUpdate(UpdateView):
     def form_invalid(self, form):
         return super().form_invalid(form)
 
-class ImageDetail(DetailView):
-    model = Screenshot
-    template_name = "imagedetails.html"
-
+def imageDetail(request,pk):
+    image = get_object_or_404(Screenshot, id=pk)
+    context = {
+        'item': image,
+        'screenshot_url': f'{generate_presigned_url(str(image.screenshot))}'
+    }
+    return render(request,template_name="imagedetails.html",context=context)
 
 class ImageDeletion(DeleteView):
     model = Screenshot
