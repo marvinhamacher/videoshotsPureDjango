@@ -10,7 +10,7 @@ from minio import Minio, S3Error
 from videoshotsPureDjango import settings
 from .forms import ScreenshotForm
 from .models import (Screenshot)
-from .serializers import ScreenshotSerializer
+
 
 client = Minio(
     "localhost:9000",

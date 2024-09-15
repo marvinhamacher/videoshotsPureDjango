@@ -13,7 +13,7 @@ class Screenshot(models.Model):
 
     title = models.CharField(max_length=70)
     description = models.TextField(max_length=300)
-    publication_date = models.DateField(default=datetime.datetime.now().strftime("%Y-%H-%d"))
+    publication_date = models.DateField(default=datetime.datetime.now().strftime("%Y-%m-%d"))
 
     def get_queryset(self):
         return Screenshot.objects.all()
