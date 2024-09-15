@@ -1,0 +1,46 @@
+<style>
+    #inner {
+        margin: 1%;
+        display: flex;
+        flex-direction: row;
+        max-height: 60rem;
+        overflow: auto;
+        background-color: white;
+    }
+
+    .outer {
+        display: flex;
+        background-color: aquamarine;
+        margin: 1%;
+        width: 60rem;
+        height: 26rem;
+    }
+
+    .spacer {
+        width: 1rem;
+        background-color: aquamarine;
+    }
+</style>
+<div class="card outer">
+    <div class="card-body">
+
+
+        <div class="card">
+            <div class="card-body" id="inner">
+                <div style="display: flex">
+                    <img src="{{ screenshot_url }}" style="width: 39rem; height: 25rem" alt="Kaputt :(">
+                </div>
+                <div class="spacer">
+
+                </div>
+                <div style="width: 20rem; height: 25rem">
+                    <h1>{{ item.title }}</h1>
+                    <hr>
+                    <p>{{ item.description }}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

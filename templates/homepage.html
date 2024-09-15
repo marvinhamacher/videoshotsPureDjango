@@ -1,29 +1,55 @@
 {% extends "base/base.html" %}
 
 {% block content %}
-    <div class="card" id="outer">
-        <div class="card-body">
-            <h1 class="card-title">Videoshots</h1>
-            <div id="inner">
-                {% for item in images %}
-                    <div class="card">
-                        <a href={% url "image_detail" item.image.id %}>
-                            <img src="{{ item.screenshot_url }}" class="card-img-top" alt="kaputt :(">
-                        </a>
-                        <div class="card-body" style="display: flex">
-                            <button type="button" class="btn btn-danger"
-                                    onclick="location.href={% url "delete_image" item.image.id %}"><i class="bi bi-trash"></i>
-                            </button>
-                            <a class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                        </div>
-                    </div>
-                {% empty %}
-                    <p> Hier ist es ziemlich still</p>
-                {% endfor %}
-            </div>
+    <style>
+        img{
+            min-height: 22rem;
+        }
+        #inner {
+            display: flex;
+            flex-direction: row;
+            max-height: 60rem;
+            overflow: auto;
+        }
 
-            <a href="{% url "create_image" %}" class="btn btn-primary"></a>
+        .icon_image {
+            width: 2rem;
+            height: 2rem;
+        }
+    </style>
+    <div id="outer">
+        <div class="card">
+            <div class="card-body">
+                <div id="inner">
+                    {% for item in images %}
+                        <div class="card" style="width: 22rem; margin: 1%">
+                            <a href={% url "image_detail" item.image.id %}>
+                                <img src="{{ item.screenshot_url }}" class="card-img-top"
+                                     style="height: 60%; width: 100%" alt="kaputt :(">
+                            </a>
+                            <div class="card-body" style="display: flex">
+                                <div class="icon_image">
+                                    <a type="button" class="btn btn-danger"
+                                       href="{% url "delete_image" item.image.id %}"><i
+                                            class="bi bi-trash"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p> Hier ist es ziemlich still</p>
+                    {% endfor %}
+                </div>
+
+
+                    <div class="icon_image">
+                        <a href="{% url "create_image" %}" class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i>
+                        </a>
+                    </div>
+
+            </div>
         </div>
     </div>
-
 {% endblock %}
