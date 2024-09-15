@@ -1,0 +1,68 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <style>
+        #inner {
+            margin: 1%;
+            display: flex;
+            flex-direction: row;
+            max-height: 60rem;
+            overflow: auto;
+            background-color: white;
+        }
+
+        .outer {
+            display: flex;
+            background-color: aquamarine;
+            margin: 1%;
+            width: 60rem;
+            height: 30rem;
+        }
+
+        .spacer {
+            height: 26rem;
+            width: 0.05%;
+            margin-right: 5%;
+            background-color: black;
+        }
+    </style>
+    <div class="card">
+        <div class="card-body" style="display: flex; flex-direction: column">
+            <div class="card outer">
+                <div class="card-body">
+                    <div class="card" style="height: 28rem;">
+                        <div class="card-body" id="inner">
+                            <div style="display: flex">
+                                <img src="{{ object.get_url }}" style="width: 39rem; height: 25rem" alt="Kaputt :(">
+                            </div>
+                            <div class="spacer">
+
+                            </div>
+                            <div style="width: 20rem; height: 25rem">
+                                <h1>{{ object.title }}</h1>
+                                <hr>
+                                <p>{{ object.description }}
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-secondary" type="submit"> Löschen </button>&nbsp;
+                    <a href="{% url "home" %}" class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                             class="bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path>
+                        </svg>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

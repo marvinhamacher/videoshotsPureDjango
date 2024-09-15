@@ -11,33 +11,11 @@ from videoshotsPureDjango import settings
 from .forms import ScreenshotForm
 from .models import (Screenshot)
 
-
-client = Minio(
-    "localhost:9000",
-    access_key=settings.MINIO_ACCESS_KEY,
-    secret_key=settings.MINIO_SECRET_KEY,
-    secure=False  # Use True if using HTTPS
-)
-
-def generate_presigned_url(object_name):
-    url = client.presigned_get_object(settings.MINIO_PRIVATE_BUCKETS[0], object_name)
-    return url
-
-
-
 def home(request):
     images = Screenshot.objects.all() # Gibt alle Plan als query einem Objekt
     images = images.order_by("-id")
-    image_fields = []
-    for n in images:
-        image_data = {
-            'screenshot_url': f'{generate_presigned_url(str(n.screenshot))}',
-            'image': n
-        }
-        image_fields.append(image_data)
-
     context = {
-        'images': image_fields
+        'images': images
     }
     return render(request, 'homepage.html', context)
 
@@ -65,7 +43,6 @@ def imageDetail(request,pk):
     image = get_object_or_404(Screenshot, id=pk)
     context = {
         'item': image,
-        'screenshot_url': f'{generate_presigned_url(str(image.screenshot))}'
     }
     return render(request,template_name="imagedetails.html",context=context)
 

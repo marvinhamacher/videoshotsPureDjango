@@ -23,15 +23,22 @@
                 <div id="inner">
                     {% for item in images %}
                         <div class="card" style="width: 22rem; margin: 1%">
-                            <a href={% url "image_detail" item.image.id %}>
-                                <img src="{{ item.screenshot_url }}" class="card-img-top"
+                            <a href={% url "image_detail" item.id %}>
+                                <img src="{{ item.get_url }}" class="card-img-top"
                                      style="height: 60%; width: 100%" alt="kaputt :(">
                             </a>
                             <div class="card-body" style="display: flex">
                                 <div class="icon_image">
                                     <a type="button" class="btn btn-danger"
-                                       href="{% url "delete_image" item.image.id %}"><i
+                                       href="{% url "delete_image" item.id %}"><i
                                             class="bi bi-trash"></i>
+                                    </a>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;
+                                <div class="icon_image">
+                                    <a type="button" class="btn btn-primary"
+                                       href="{% url "update_image" item.id %}"><i
+                                            class="bi bi-gear"></i>
                                     </a>
                                 </div>
 

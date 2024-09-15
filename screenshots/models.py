@@ -2,6 +2,9 @@ import datetime
 
 from django.db import models
 from django_minio_backend import MinioBackend, iso_date_prefix
+from minio import Minio
+
+from videoshotsPureDjango import settings
 
 
 # Create your models here.
@@ -17,3 +20,6 @@ class Screenshot(models.Model):
 
     def get_queryset(self):
         return Screenshot.objects.all()
+
+    def get_url(self):
+        return self.screenshot.url
