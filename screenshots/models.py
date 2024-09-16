@@ -14,8 +14,8 @@ class Screenshot(models.Model):
                             storage=MinioBackend(bucket_name='videoshotsdjango'),
                             upload_to=iso_date_prefix)
 
-    title = models.CharField(max_length=70)
-    description = models.TextField(max_length=300)
+    title = models.CharField(max_length=70, verbose_name="Titel")
+    description = models.TextField(max_length=300, verbose_name="Beschreibung")
     publication_date = models.DateField(default=datetime.datetime.now().strftime("%Y-%m-%d"))
 
     def get_queryset(self):

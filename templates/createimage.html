@@ -6,7 +6,7 @@
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
-                <button class="btn btn-secondary" type="submit"> Erstellen</button>&nbsp;
+                <button id="submitButton" class="btn btn-secondary" type="submit"> Erstellen</button>&nbsp;
                 <a href="{% url "home" %}" class="btn btn-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-x" viewBox="0 0 16 16">
