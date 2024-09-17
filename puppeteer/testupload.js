@@ -88,4 +88,4 @@ async function runTests(iterations) {
     });
 }
 
-runTests(3);
+runTests(4);
