@@ -1,0 +1,5 @@
+Markdown~=3.4.4
+matplotlib~=3.5.3
+numpy~=1.21.6
+Django~=3.2.4
+minio~=7.2.7

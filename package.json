@@ -1,0 +1,17 @@
+{
+  "name": "videoshotspuredjango",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marvinhamacher/videoshotsPureDjango.git"
+  },
+  "private": true,
+  "dependencies": {
+    "puppeteer": "^23.3.0"
+  }
+}
